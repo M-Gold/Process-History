@@ -9,6 +9,30 @@ namespace ProcessHistory
 {
     class ProcessSnapshotCollection
     {
-        Process p
+        private class SystemSnapshot
+        {
+            Process[] procList;
+            DateTime time;
+
+            public SystemSnapshot(Process[] p, DateTime t)
+            {
+                procList = p;
+                time = t;
+            }
+        }
+
+    
+
+        List<SystemSnapshot> snapshopList;
+        public Process[] TakeSnapshot()
+        {
+            Process[] pList = Process.GetProcesses();
+            SystemSnapshot ss = new SystemSnapshot(pList, DateTime.Now);
+            snapshopList.Add(ss);
+            return pList;
+        }
+        
+
+
     }
 }

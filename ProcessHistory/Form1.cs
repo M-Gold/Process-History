@@ -12,9 +12,16 @@ namespace ProcessHistory
 {
     public partial class Form1 : Form
     {
+        ProcessSnapshotCollection snapshots = new ProcessSnapshotCollection();
         public Form1()
         {
             InitializeComponent();
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            snapshots.TakeSnapshot();
         }
     }
 }
